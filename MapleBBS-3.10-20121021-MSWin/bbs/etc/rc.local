@@ -1,0 +1,26 @@
+#!/bin/tcsh
+#
+# MapleBBS
+#
+echo 正在啟動 shared memory
+ipc-daemon2 &
+#
+echo 正在啟動 camera account
+~/bin/camera
+~/bin/account
+# 
+echo 正在啟動 BBS daemon
+~/bin/bbsd
+~/bin/bguard
+~/bin/bhttpd
+~/bin/bmtad
+~/bin/bnntpd
+~/bin/bpop3d
+~/bin/gemd
+~/bin/xchatd
+~/innd/innbbsd
+#
+echo 正在啟動 crontab
+cygrunsrv -S Crontab
+#
+echo 啟動完成
